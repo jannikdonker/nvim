@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "svelte", "tailwindcss", "cssls", "rust_analyzer" },
+				ensure_installed = { "lua_ls", "ts_ls", "svelte", "tailwindcss", "cssls", "rust_analyzer", "jedi_language_server", "sourcekit" },
 			})
 		end,
 	},
@@ -37,13 +37,10 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.sourcekit.setup({
-				capabilities = {
-					workspace = {
-						didChangeWatchedFiles = {
-							dynamicRegistration = true,
-						},
-					},
-				},
+				capabilities = capabilities,
+			})
+			lspconfig.jedi_language_server.setup({
+				capabilities = capabilities,
 			})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
