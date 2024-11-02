@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "svelte", "tailwindcss", "cssls", "rust_analyzer", "jedi_language_server", "sourcekit" },
+				ensure_installed = { "lua_ls", "ts_ls", "svelte", "tailwindcss", "cssls", "rust_analyzer", "jedi_language_server" },
 			})
 		end,
 	},
